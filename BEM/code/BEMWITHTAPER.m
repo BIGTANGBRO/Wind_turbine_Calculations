@@ -22,7 +22,7 @@ Cd = 0.036;%input('Optimum Cd');
 rho = 1.225; %density of air
 
 %initialize blade sections (31)
-dr=(r0:((R)-r0)/39:R); 
+dr=(r0:((R)-r0)/20:R); 
 
 %start BEM algo to find a, chord and Cl over the span of the blade
 for i =1:3
@@ -127,8 +127,8 @@ dM = 0.5*rho.*dUcalc.*dc.*dCx.*dr; %Torque
 dT = 0.5*rho.*dTcalc.*dc.*dCy; %Axial Force
 plot(dr,dc,'r-');
 
-Utotal = trapz(dr(1:39),dU(1:39));
-Mtotal = trapz(dr(1:39),dM(1:39));
-Ttotal = trapz(dr(1:39),dT(1:39));
-Ptotal = (omega*B)*trapz(dr(1:39),dU(1:39));
+Utotal = trapz(dr(1:20),dU(1:20));
+Mtotal = trapz(dr(1:20),dM(1:20));
+Ttotal = trapz(dr(1:20),dT(1:20));
+Ptotal = (omega*B)*trapz(dr(1:20),dU(1:20));
 Cp = (0.5*rho*(pi*R^2)*vwind^3)/Ptotal;
