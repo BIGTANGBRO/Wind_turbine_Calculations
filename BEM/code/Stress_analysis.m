@@ -8,18 +8,18 @@ beta_angle=beta;
 beta=beta*pi/180;%turn the beta angle to the radian
 % Input Air
 Vwind=12; % U infinity - Wind Speed; 6,8,10,12 ms^-1
-omega_rpm=input('input the angular velocity of the turbine'); % Angular velocity; maximum 3000 rpm
+omega_rpm=3000; % Angular velocity; maximum 3000 rpm
 a1=1/3; % Induction factor
 rho=1.225; % Density; kg/m^3
 
 % Input Geometry
-nb=input('input the number of the blades:'); % Number of blades
+nb=3; % Number of blades
 np=length(c); % Number of panels
 % Material Properties
 E=2230*10^6; % Tensile modulus; Pa
 eps_max=0.07; % Break elongation
 sigma_max=32*10^6; % Failure stress; Pa
-rho_abs=900; % ABS plastic density; kg/m^3
+rho_abs=1180; % ABS plastic density; kg/m^3
 
 
 % Aerofoil Parameters
@@ -27,7 +27,7 @@ rho_abs=900; % ABS plastic density; kg/m^3
 
 Ka=0.60; % Coefficient from MIT resource
 Ki=0.036; % Coefficient from MIT resource
-t_max_ratio=0.10; % Maximum thickness
+t_max_ratio=0.2; % Maximum thickness
 h_max_ratio=0.051; % Maximum camber
 %this is the aero foil data of the airfoil sg6043
 
@@ -121,6 +121,8 @@ fprintf('The maximum stress torque in rotational direction is %2.4f Pa\n',max(st
 fprintf('The maximum stress torque in wind direction is %2.4f Pa\n',max(stress_torque_th));
 fprintf('The maximum stress due to centerifugal force is %2.4f N\n',max(stress_centr));
 
+
+%%
 function [Cl,Cd,c,Beta,r,step,R]=GetData()
 
 B = 3; %Number of blades
